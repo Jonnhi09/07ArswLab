@@ -1,1 +1,1 @@
-web: java -jar target/02ArswParcial-1.0.jar
+web: java -jar target/07ArswLab-1.0.jar

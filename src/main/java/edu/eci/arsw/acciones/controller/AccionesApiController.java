@@ -35,7 +35,7 @@ public class AccionesApiController {
     @RequestMapping(method = RequestMethod.GET, path = "/{rango}/{nombreAccion}")
     public ResponseEntity<?> getAcciones(@PathVariable("rango") String rango, @PathVariable("nombreAccion") String nombreAccion) {
         try {
-            return new ResponseEntity<>(as.obtenerAcciones(rango, nombreAccion), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(as.obtenerAcciones(rango.toLowerCase(), nombreAccion.toLowerCase()), HttpStatus.ACCEPTED);
         } catch (IOException e) {
             return new ResponseEntity<>("Error al obtener las acciones del nombre y rango dado.", HttpStatus.NOT_FOUND);
         }
@@ -44,7 +44,7 @@ public class AccionesApiController {
     @RequestMapping(method = RequestMethod.GET, path = "/search/{keyWords}")
     public ResponseEntity<?> buscarAcciones(@PathVariable("keyWords") String keyWords) {
         try {
-            return new ResponseEntity<>(as.buscarNombresAcciones(keyWords), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(as.buscarNombresAcciones(keyWords.toLowerCase()), HttpStatus.ACCEPTED);
         } catch (IOException e) {
             return new ResponseEntity<>("Error al buscar las acciones con los caracteres dados.", HttpStatus.NOT_FOUND);
         }

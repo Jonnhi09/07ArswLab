@@ -12,7 +12,10 @@ function buscarAcciones(nombreAccion) {
             options.appendChild(a);
             options.appendChild(document.createElement("BR"));
         }
-    })
+    }).catch(function (error) {
+        console.log(error);
+        alert("Hay un inconveniente al buscar las acciones con los caracteres dados!");
+    });
 }
 
 function obtenerAcciones(rango, nombreAccion) {
@@ -82,7 +85,10 @@ function obtenerAcciones(rango, nombreAccion) {
         }
         table.appendChild(tbody);
         document.getElementById("Tabla").appendChild(table);
-    })//alert
+    }).catch(function (error) {
+        console.log(error);
+        alert("Al parecer la acción con el nombre y rango dado no existen!");
+    });
 }
 
 function setAccion(nombreAccion) {
